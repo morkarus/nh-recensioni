@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recensione servizio - NH Roma Villa Carpegna</title>
+  <style>
+    :root {
+      --nh-bg: #f3f4f6;
+      --nh-card-bg: #ffffff;
+      --nh-text: #1a1a1a;
+      --nh-muted: #6b7280;
+      --nh-border: #e5e7eb;
+      --nh-primary: #0b2742;
+      --nh-accent: #0e3a65;
+      --nh-focus: #1f6feb;
+    }
+
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--nh-bg);
+      color: var(--nh-text);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nh-logo-img {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 60px;
+      height: auto;
+      pointer-events: none;
+    }
+    /* Rappresentazione del logo tramite immagine fornita */
+    .nh-logo-svg { display: none; }
+
+    .page-wrap {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: var(--nh-card-bg);
+      padding: 22px;
+      margin: 24px 16px;
+      max-width: 640px;
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--nh-border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+    }
+
+    h2 {
+      color: var(--nh-text);
+      margin: 0 0 6px 0;
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    h3 {
+      color: var(--nh-muted);
+      margin: 0 0 12px 0;
+      font-weight: 600;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    p {
+      color: var(--nh-text);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0 0 12px 0;
+    }
+
+    .copy-box {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px 12px;
+      font-size: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--nh-border);
+      box-sizing: border-box;
+      resize: none;
+      min-height: 72px;
+      background-color: #fafafa;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 12px;
+      border: 1px solid var(--nh-border);
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.05s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+      background-color: #fff;
+      color: var(--nh-text);
+    }
+    .btn:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+    .btn:active { transform: translateY(1px); }
+
+    .select-btn { background-color: var(--nh-primary); color: #fff; border-color: transparent; }
+    .google-btn { background-color: #fff; color: #202124; border-color: #dadce0; }
+    .tripadvisor-btn { background-color: #00AF87; color: #fff; border-color: transparent; }
+    .btn-with-icon { display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .btn-with-icon svg { display: inline-block; }
+    .regen-btn { background-color: #555; color: #fff; }
+
+    .section-title {
+      margin-top: 24px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--nh-text);
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: var(--nh-muted);
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .frase-block { text-align: left; margin-top: 12px; }
+
+    .frase-block label {
+      font-size: 14px;
+      color: #333;
+      display: block;
+    }
+
+    .links { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 10px; }
+    @media (min-width: 560px) { .links { grid-template-columns: 1fr 1fr; } }
+    .link-btn { text-decoration: none; }
+
+    /* Compattazione mobile per ridurre scrolling */
+    @media (max-width: 420px), (max-height: 740px) {
+      .nh-header { padding: 8px 12px; }
+      .nh-brand { font-size: 12px; }
+      .nh-subbrand { font-size: 12px; }
+
+      .container { margin: 10px; padding: 14px; gap: 8px; }
+      .nh-logo-img { top: 6px; left: 6px; width: 48px; }
+      h2 { font-size: 18px; margin-bottom: 4px; }
+      h3 { font-size: 14px; margin-bottom: 8px; }
+      p { font-size: 13px; line-height: 1.4; }
+
+      .frase-block { margin-top: 8px; }
+      .copy-box { min-height: 48px; font-size: 13px; padding: 8px 10px; }
+      .btn { padding: 10px; font-size: 14px; border-radius: 10px; }
+      .section-title { margin-top: 12px; font-size: 12px; }
+      .links { gap: 8px; }
+      .small-note { font-size: 12px; }
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.85);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      z-index: 1000;
+      display: none;
+    }
+    .toast.show { display: block; }
+
+    .modal-mask {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .modal-mask.show { display: flex; }
+    .modal-box {
+      background: #fff;
+      border: 1px solid var(--nh-border);
+      border-radius: 12px;
+      padding: 16px;
+      max-width: 320px;
+      width: 92%;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+    .modal-title { font-weight: 700; margin: 0 0 8px 0; color: var(--nh-text); }
+    .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+    .btn-outline { background: #fff; color: var(--nh-text); border-color: var(--nh-border); }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+  <div class="container" role="main">
+    <img id="nh-logo" class="nh-logo-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh1i2xfdIWQqQVAJdvca7Fj0aWDdor620yAg&s" alt="NH Hotels" referrerpolicy="no-referrer" />
+    <h2>Lascia una recensione</h2>
+    <h3>Servizio ricevuto da <span id="staff-name">il nostro staff</span></h3>
+
+    <p>
+      Grazie per il tuo tempo!<br>
+      Questa pagina ti aiuta a lasciare una recensione riferita al servizio
+      ricevuto da <b><span id="staff-name-2">il nostro staff</span></b>
+      presso NH Roma Villa Carpegna.
+    </p>
+
+    <p>
+      1. Scegli una delle frasi suggerite qui sotto (puoi anche modificarla dopo averla incollata).<br>
+      2. Premi <b>Copia questa frase</b> sulla frase che preferisci.<br>
+      3. Tocca il canale di recensione che preferisci (Google, Tripadvisor).<br>
+      4. Incolla il testo all'inizio della recensione e scrivi il resto del tuo commento.
+    </p>
+
+    <div class="frase-block">
+      <label for="frase1"><b>Opzione 1</b></label>
+      <textarea id="frase1" class="copy-box" readonly aria-label="Frase suggerita 1"></textarea>
+      <button class="btn select-btn" onclick="selectText('frase1')" aria-label="Copia frase 1">Copia questa frase</button>
+    </div>
+
+    <div class="frase-block">
+      <label for="frase2"><b>Opzione 2</b></label>
+      <textarea id="frase2" class="copy-box" readonly aria-label="Frase suggerita 2"></textarea>
+      <button class="btn select-btn" onclick="selectText('frase2')" aria-label="Copia frase 2">Copia questa frase</button>
+    </div>
+
+    <div class="frase-block">
+      <label for="frase3"><b>Opzione 3</b></label>
+      <textarea id="frase3" class="copy-box" readonly aria-label="Frase suggerita 3"></textarea>
+      <button class="btn select-btn" onclick="selectText('frase3')" aria-label="Copia frase 3">Copia questa frase</button>
+    </div>
+
+    <button class="btn regen-btn" onclick="preparaFrasi()" aria-label="Rigenera frasi">Genera nuove frasi</button>
+
+    <div class="section-title">Scegli dove lasciare la recensione</div>
+
+    <div class="links" role="navigation" aria-label="Canali recensione">
+      <a class="link-btn" href="https://search.google.com/local/writereview?placeid=ChIJJ5q9vApgLxMR3WPW2oorcDc" target="_blank" rel="noopener noreferrer" aria-label="Apri pagina recensioni Google">
+        <button class="btn google-btn btn-with-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#EA4335" d="M12 10.2v3.9h5.5c-.24 1.4-.99 2.58-2.11 3.36l3.41 2.65c2-1.85 3.16-4.58 3.16-7.81 0-.75-.07-1.47-.2-2.16H12z"/>
+            <path fill="#34A853" d="M12 24c2.88 0 5.31-.95 7.08-2.57l-3.41-2.65c-.95.65-2.18 1.03-3.67 1.03-2.82 0-5.2-1.9-6.06-4.47H2.38v2.8C4.15 21.72 7.79 24 12 24z"/>
+            <path fill="#4285F4" d="M5.94 15.34A6.98 6.98 0 0 1 5.56 12c0-1.16.28-2.25.78-3.22V5.98H2.38A11.99 11.99 0 0 0 0 12c0 1.97.47 3.82 1.3 5.46l4.64-2.12z"/>
+            <path fill="#FBBC05" d="M12 4.77c1.57 0 2.98.54 4.09 1.6l3.06-3.06C17.31 1.25 14.88 0 12 0 7.79 0 4.15 2.28 2.38 5.98l4-2.2C6.8 6.67 9.18 4.77 12 4.77z"/>
+          </svg>
+          <span>Recensione su Google</span>
+        </button>
+      </a>
+
+      
+
+      <a class="link-btn" href="https://www.tripadvisor.it/UserReview-g187791-d229083-NH_Roma_Villa_Carpegna" target="_blank" rel="noopener noreferrer" aria-label="Apri pagina scrivi recensione su Tripadvisor">
+        <button class="btn tripadvisor-btn btn-with-icon">
+          <svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="#00AF87"/>
+            <circle cx="22" cy="32" r="11" fill="#fff"/>
+            <circle cx="42" cy="32" r="11" fill="#fff"/>
+            <circle cx="22" cy="32" r="5" fill="#1a1a1a"/>
+            <circle cx="42" cy="32" r="5" fill="#1a1a1a"/>
+            <path d="M32 42 L28 48 L36 48 Z" fill="#1a1a1a"/>
+          </svg>
+          <span>Recensione su Tripadvisor</span>
+        </button>
+      </a>
+    </div>
+
+    <p class="small-note">
+      Il testo suggerito serve solo ad indicare la persona che ti ha seguito.<br>
+      Puoi modificarlo liberamente in qualsiasi canale di recensione.
+    </p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="copy-consent" class="modal-mask" role="dialog" aria-modal="true" aria-labelledby="copy-title">
+    <div class="modal-box">
+      <div id="copy-title" class="modal-title">Copia negli appunti</div>
+      <p>Vuoi copiare questa frase negli appunti?</p>
+      <div class="modal-actions">
+        <button id="copy-allow" class="btn select-btn">Consenti copia</button>
+        <button id="copy-cancel" class="btn btn-outline">Annulla</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Estrae il nome dello staff dai parametri URL (?staff=Nome)
+    function getStaffNameFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("staff");
+      const cleaned = name && name.trim() !== "" ? name.trim() : "il nostro staff";
+      return cleaned;
+    }
+
+    // Restituisce un elemento casuale da un array
+    function pickRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    // Genera tre frasi sostituendo il placeholder {staff}
+    function preparaFrasi() {
+      const f1 = pickRandom(frasiNeutre).replace("{staff}", staffName);
+      const f2 = pickRandom(frasiEmozionali).replace("{staff}", staffName);
+      const f3 = pickRandom(frasiPremium).replace("{staff}", staffName);
+      document.getElementById("frase1").value = f1;
+      document.getElementById("frase2").value = f2;
+      document.getElementById("frase3").value = f3;
+    }
+
+    // Mostra un toast non modale
+    function showToast(message) {
+      const t = document.getElementById("toast");
+      if (!t) return;
+      t.textContent = message;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 1800);
+    }
+
+    // Tenta la copia con Clipboard API o execCommand
+    async function tryCopyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try { await navigator.clipboard.writeText(text); return true; } catch {}
+      }
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand("copy"); } catch {}
+      document.body.removeChild(ta);
+      return ok;
+    }
+
+    // Copia o seleziona con messaggio
+    async function copyOrSelect(box) {
+      const text = box.value;
+      const ok = await tryCopyText(text);
+      if (ok) {
+        showToast("Frase copiata negli appunti");
+      } else {
+        box.focus();
+        box.select();
+        showToast("Impossibile copiare: testo selezionato, premi Copia");
+      }
+    }
+
+    // Gestisce la copia con consenso opzionale (?consent=1)
+    async function selectText(id) {
+      const box = document.getElementById(id);
+      if (!box) return;
+      const consent = new URLSearchParams(window.location.search).get("consent") === "1";
+      if (consent) {
+        const mask = document.getElementById("copy-consent");
+        const allow = document.getElementById("copy-allow");
+        const cancel = document.getElementById("copy-cancel");
+        mask.classList.add("show");
+        const onAllow = async () => { mask.classList.remove("show"); allow.removeEventListener("click", onAllow); cancel.removeEventListener("click", onCancel); await copyOrSelect(box); };
+        const onCancel = () => { mask.classList.remove("show"); allow.removeEventListener("click", onAllow); cancel.removeEventListener("click", onCancel); };
+        allow.addEventListener("click", onAllow);
+        cancel.addEventListener("click", onCancel);
+      } else {
+        await copyOrSelect(box);
+      }
+    }
+
+    let staffName = "il nostro staff";
+
+    // Inizializza pagina al caricamento
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const logoParam = params.get("logo");
+      const logoImg = document.getElementById("nh-logo");
+      if (logoImg && logoParam && logoParam.trim() !== "") {
+        logoImg.src = logoParam.trim();
+      }
+
+      staffName = getStaffNameFromUrl();
+      document.getElementById("staff-name").textContent = staffName;
+      document.getElementById("staff-name-2").textContent = staffName;
+      preparaFrasi();
+    });
+
+    // Dataset frasi
+    const frasiNeutre = [
+      "Servizio ricevuto da {staff}, estremamente gentile e professionale.",
+      "Esperienza molto positiva grazie a {staff}.",
+      "Ringrazio {staff} per la disponibilità e la cortesia.",
+      "Ottima accoglienza da parte di {staff}.",
+      "Servizio impeccabile fornito da {staff}.",
+      "Cortesia e professionalità di {staff} davvero apprezzate.",
+      "Un grazie speciale a {staff} per l’assistenza.",
+      "Servizio rapido ed efficiente da parte di {staff}.",
+      "Molto soddisfatto del supporto ricevuto da {staff}.",
+      "Accoglienza calorosa grazie a {staff}.",
+      "Grande attenzione al cliente da parte di {staff}.",
+      "Servizio curato nei dettagli grazie a {staff}.",
+      "Personale molto gentile, in particolare {staff}.",
+      "Un ringraziamento a {staff} per la disponibilità.",
+      "Esperienza resa migliore grazie a {staff}.",
+      "Assistenza perfetta da parte di {staff}.",
+      "Professionalità evidente di {staff}.",
+      "Servizio puntuale e preciso da parte di {staff}.",
+      "Accoglienza e gentilezza di {staff} straordinarie.",
+      "Cordialità e competenza di {staff} molto apprezzate.",
+      "Ottimo servizio clienti grazie a {staff}.",
+      "Staff attento, soprattutto {staff}.",
+      "Servizio gestito con grande cura da {staff}.",
+      "Disponibilità totale da parte di {staff}.",
+      "Molto soddisfatto dell’assistenza di {staff}.",
+      "Professionalità e cortesia di {staff} impeccabili.",
+      "Grazie a {staff} per l’ottimo servizio.",
+      "Esperienza fluida grazie a {staff}.",
+      "Servizio preciso e cordiale da parte di {staff}.",
+      "Accoglienza curata e professionale grazie a {staff}.",
+      "Servizio di alto livello grazie a {staff}.",
+      "Grande professionalità dimostrata da {staff}.",
+      "Sempre disponibili, soprattutto {staff}.",
+      "Accoglienza impeccabile da parte di {staff}.",
+      "Servizio estremamente curato da {staff}.",
+      "Cordialità e grande attenzione grazie a {staff}.",
+      "Assistenza completa da parte di {staff}.",
+      "Staff preparato, in particolare {staff}.",
+      "Un servizio che fa la differenza grazie a {staff}.",
+      "Esperienza gestita con grande professionalità da {staff}."
+    ];
+
+    const frasiEmozionali = [
+      "Grazie a {staff} mi sono sentito subito a mio agio.",
+      "Un’accoglienza che ti mette di buon umore grazie a {staff}.",
+      "La gentilezza di {staff} ha reso tutto più semplice.",
+      "Un sorriso e tanta disponibilità da parte di {staff}.",
+      "{staff} ha fatto davvero la differenza nella mia esperienza.",
+      "Mi sono sentito seguito con attenzione da {staff}.",
+      "L’energia positiva di {staff} si percepisce subito.",
+      "Un servizio che ti fa sentire il benvenuto, grazie a {staff}.",
+      "Disponibilità e cura grazie a {staff}.",
+      "Esperienza piacevole grazie all’attenzione di {staff}.",
+      "Un’accoglienza che resta impressa grazie a {staff}.",
+      "Gentilezza sincera da parte di {staff}.",
+      "Servizio che trasmette serenità grazie a {staff}.",
+      "Un supporto davvero rassicurante da parte di {staff}.",
+      "{staff} è stato sempre presente al momento giusto.",
+      "Un servizio che fa sentire il cliente importante grazie a {staff}.",
+      "Cordialità che si nota subito grazie a {staff}.",
+      "Un tocco umano che fa la differenza grazie a {staff}.",
+      "Mi sono sentito accolto con grande naturalezza da {staff}.",
+      "La disponibilità di {staff} è stata davvero apprezzata.",
+      "Un’esperienza positiva anche grazie all’attenzione di {staff}.",
+      "Il modo di fare di {staff} trasmette fiducia.",
+      "Un’assistenza che mette a proprio agio grazie a {staff}.",
+      "{staff} ha reso tutto più semplice e piacevole.",
+      "Un servizio umano e attento grazie a {staff}.",
+      "Presenza costante e rassicurante da parte di {staff}.",
+      "Un’accoglienza che fa sentire subito bene grazie a {staff}.",
+      "Gentilezza autentica da parte di {staff}.",
+      "Un servizio che lascia una sensazione positiva grazie a {staff}.",
+      "Grande attenzione alle persone grazie a {staff}."
+    ];
+
+    const frasiPremium = [
+      "Servizio elegante e raffinato grazie a {staff}.",
+      "Un’assistenza di livello superiore da parte di {staff}.",
+      "Esperienza curata con stile grazie a {staff}.",
+      "Professionalità di alto profilo grazie a {staff}.",
+      "Un servizio che rispecchia uno standard elevato grazie a {staff}.",
+      "Cura del dettaglio evidente grazie a {staff}.",
+      "Accoglienza di classe da parte di {staff}.",
+      "Servizio all’altezza di una struttura di livello grazie a {staff}.",
+      "Un supporto discreto ed efficace grazie a {staff}.",
+      "Stile e professionalità riuniti grazie a {staff}.",
+      "Un servizio che comunica qualità grazie a {staff}.",
+      "Esperienza gestita con grande eleganza da {staff}.",
+      "Un’accoglienza che rispecchia uno standard premium grazie a {staff}.",
+      "Servizio che trasmette affidabilità grazie a {staff}.",
+      "Gestione impeccabile grazie alla professionalità di {staff}.",
+      "Un servizio che valorizza l’esperienza complessiva grazie a {staff}.",
+      "Attenzione e classe grazie a {staff}.",
+      "Un supporto sempre presente e misurato grazie a {staff}.",
+      "Eleganza operativa e precisione grazie a {staff}.",
+      "Un servizio che rispecchia pienamente l’alto livello della struttura grazie a {staff}.",
+      "Cura, attenzione e stile grazie a {staff}.",
+      "Un’assistenza che trasmette sicurezza grazie a {staff}.",
+      "Professionalità che si nota nei piccoli dettagli grazie a {staff}.",
+      "Un servizio sobrio ed efficace grazie a {staff}.",
+      "Esperienza gestita con grande equilibrio e precisione grazie a {staff}.",
+      "Un’accoglienza che trasmette qualità grazie a {staff}.",
+      "Servizio che comunica affidabilità e cura grazie a {staff}.",
+      "Un supporto elegante e sempre presente grazie a {staff}.",
+      "Gestione fluida e professionale grazie a {staff}.",
+      "Esperienza condotta con stile grazie a {staff}."
+    ];
+  </script>
+</body>
+</html>
