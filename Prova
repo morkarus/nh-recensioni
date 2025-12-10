@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recensione servizio - NH Roma Villa Carpegna</title>
+  <style>
+    :root {
+      --nh-bg: #f3f4f6;
+      --nh-card-bg: #ffffff;
+      --nh-text: #1a1a1a;
+      --nh-muted: #6b7280;
+      --nh-border: #e5e7eb;
+      --nh-primary: #0b2742;
+      --nh-accent: #0e3a65;
+      --nh-focus: #1f6feb;
+    }
+
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(circle at top, #ffffff 0, #f3f4f6 55%, #e5e7eb 100%);
+      color: var(--nh-text);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nh-logo-img {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 60px;
+      height: auto;
+      pointer-events: none;
+    }
+    .nh-logo-svg { display: none; }
+
+    .page-wrap {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    main.container {
+      background: var(--nh-card-bg);
+      padding: 22px;
+      margin: 24px 16px;
+      max-width: 640px;
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--nh-border);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+    }
+
+    h2 {
+      color: var(--nh-text);
+      margin: 4px 0 6px 0;
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    h3 {
+      color: var(--nh-muted);
+      margin: 0 0 12px 0;
+      font-weight: 600;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .hotel-name {
+      text-align: center;
+      margin: 0 0 10px 0;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--nh-muted);
+    }
+
+    p {
+      color: var(--nh-text);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0 0 12px 0;
+    }
+
+    .intro-text {
+      text-align: left;
+      margin-top: 4px;
+    }
+
+    .steps {
+      margin: 6px 0 10px 0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background-color: #f9fafb;
+      border: 1px dashed var(--nh-border);
+    }
+
+    .steps-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin: 0 0 6px 0;
+      color: var(--nh-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .steps-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
+      color: var(--nh-text);
+    }
+
+    .steps-list li {
+      margin: 2px 0;
+      line-height: 1.5;
+    }
+
+    .copy-box {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px 12px;
+      font-size: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--nh-border);
+      box-sizing: border-box;
+      resize: none;
+      min-height: 72px;
+      background-color: #fafafa;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    }
+
+    .copy-box:focus {
+      outline: none;
+      border-color: var(--nh-focus);
+      box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.25);
+      background-color: #ffffff;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 12px;
+      border: 1px solid var(--nh-border);
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: 600;
+      transition:
+        transform 0.05s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+      background-color: #fff;
+      color: var(--nh-text);
+    }
+
+    .btn:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--nh-focus);
+      outline-offset: 2px;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    .select-btn {
+      background-color: var(--nh-primary);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .google-btn {
+      background-color: #fff;
+      color: #202124;
+      border-color: #dadce0;
+    }
+
+    .tripadvisor-btn {
+      background-color: #00AF87;
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .btn-with-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-with-icon svg {
+      display: inline-block;
+    }
+
+    .regen-btn {
+      background-color: #555;
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .section-title {
+      margin-top: 24px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--nh-text);
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--nh-muted);
+      text-align: center;
+      margin-top: -4px;
+      margin-bottom: 6px;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: var(--nh-muted);
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .frase-block {
+      text-align: left;
+      margin-top: 12px;
+    }
+
+    .frase-block label {
+      font-size: 14px;
+      color: #333;
+      display: block;
+      font-weight: 600;
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 560px) {
+      .links {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .link-btn {
+      text-decoration: none;
+    }
+
+    @media (max-width: 420px),
+    (max-height: 740px) {
+      main.container {
+        margin: 10px;
+        padding: 14px;
+        gap: 8px;
+        border-radius: 14px;
+      }
+
+      .nh-logo-img {
+        top: 6px;
+        left: 6px;
+        width: 48px;
+      }
+
+      h2 {
+        font-size: 18px;
+        margin-bottom: 4px;
+      }
+
+      h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .steps-list {
+        font-size: 13px;
+      }
+
+      .frase-block {
+        margin-top: 8px;
+      }
+
+      .copy-box {
+        min-height: 48px;
+        font-size: 13px;
+        padding: 8px 10px;
+      }
+
+      .btn {
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 10px;
+      }
+
+      .section-title {
+        margin-top: 12px;
+        font-size: 12px;
+      }
+
+      .links {
+        gap: 8px;
+      }
+
+      .small-note {
+        font-size: 12px;
+      }
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      z-index: 1000;
+      display: none;
+      max-width: 90%;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .toast.show {
+      display: block;
+    }
+
+    .modal-mask {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .modal-mask.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #fff;
+      border: 1px solid var(--nh-border);
+      border-radius: 12px;
+      padding: 16px;
+      max-width: 320px;
+      width: 92%;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-title {
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      color: var(--nh-text);
+    }
+
+    .modal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--nh-text);
+      border-color: var(--nh-border);
+    }
+
+    /* Badge lingua in alto a destra */
+    .lang-badge {
+      position: fixed;
+      top: 14px;
+      right: 16px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background-color: rgba(11, 39, 66, 0.92);
+      color: #f9fafb;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      z-index: 900;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-badge" id="lang-badge" aria-label="Lingua della pagina">IT</div>
+
+  <div class="page-wrap">
+    <main class="container" role="main">
+      <img
+        id="nh-logo"
+        class="nh-logo-img"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh1i2xfdIWQqQVAJdvca7Fj0aWDdor620yAg&s"
+        alt="NH Hotels"
+        referrerpolicy="no-referrer"
+      />
+
+      <p class="hotel-name">NH Roma Villa Carpegna</p>
+
+      <h2>Lascia una recensione</h2>
+      <h3>Servizio ricevuto da <span id="staff-name">il nostro staff</span></h3>
+
+      <p class="intro-text">
+        Grazie per il tuo tempo!<br>
+        Questa pagina ti aiuta a lasciare una recensione riferita al servizio
+        ricevuto da <b><span id="staff-name-2">il nostro staff</span></b>
+        presso NH Roma Villa Carpegna.
+      </p>
+
+      <div class="steps" aria-label="Istruzioni per lasciare la recensione">
+        <p class="steps-title">Come usare questa pagina</p>
+        <ol id="steps-list" class="steps-list">
+          <li>1. Scegli una delle frasi suggerite qui sotto (puoi anche modificarla dopo averla incollata).</li>
+          <li>2. Premi <b>Copia questa frase</b> sulla frase che preferisci.</li>
+          <li>3. Tocca il canale di recensione che preferisci (Google, Tripadvisor).</li>
+          <li>4. Incolla il testo all'inizio della recensione e scrivi il resto del tuo commento.</li>
+        </ol>
+      </div>
+
+      <div class="frase-block">
+        <label for="frase1"><b>Opzione 1</b></label>
+        <textarea id="frase1" class="copy-box" readonly aria-label="Frase suggerita 1"></textarea>
+        <button class="btn select-btn" onclick="selectText('frase1')" aria-label="Copia frase 1">
+          Copia questa frase
+        </button>
+      </div>
+
+      <div class="frase-block">
+        <label for="frase2"><b>Opzione 2</b></label>
+        <textarea id="frase2" class="copy-box" readonly aria-label="Frase suggerita 2"></textarea>
+        <button class="btn select-btn" onclick="selectText('frase2')" aria-label="Copia frase 2">
+          Copia questa frase
+        </button>
+      </div>
+
+      <div class="frase-block">
+        <label for="frase3"><b>Opzione 3</b></label>
+        <textarea id="frase3" class="copy-box" readonly aria-label="Frase suggerita 3"></textarea>
+        <button class="btn select-btn" onclick="selectText('frase3')" aria-label="Copia frase 3">
+          Copia questa frase
+        </button>
+      </div>
+
+      <button class="btn regen-btn" onclick="preparaFrasi()" aria-label="Rigenera frasi">
+        Genera nuove frasi
+      </button>
+
+      <div class="section-title">Scegli dove lasciare la recensione</div>
+      <p class="section-sub">Dopo aver copiato la frase, scegli il canale che preferisci.</p>
+
+      <div class="links" role="navigation" aria-label="Canali recensione">
+        <a
+          class="link-btn"
+          href="https://search.google.com/local/writereview?placeid=ChIJJ5q9vApgLxMR3WPW2oorcDc"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Apri pagina recensioni Google"
+        >
+          <button class="btn google-btn btn-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="#EA4335"
+                d="M12 10.2v3.9h5.5c-.24 1.4-.99 2.58-2.11 3.36l3.41 2.65c2-1.85 3.16-4.58 3.16-7.81 0-.75-.07-1.47-.2-2.16H12z"
+              />
+              <path
+                fill="#34A853"
+                d="M12 24c2.88 0 5.31-.95 7.08-2.57l-3.41-2.65c-.95.65-2.18 1.03-3.67 1.03-2.82 0-5.2-1.9-6.06-4.47H2.38v2.8C4.15 21.72 7.79 24 12 24z"
+              />
+              <path
+                fill="#4285F4"
+                d="M5.94 15.34A6.98 6.98 0 0 1 5.56 12c0-1.16.28-2.25.78-3.22V5.98H2.38A11.99 11.99 0 0 0 0 12c0 1.97.47 3.82 1.3 5.46l4.64-2.12z"
+              />
+              <path
+                fill="#FBBC05"
+                d="M12 4.77c1.57 0 2.98.54 4.09 1.6l3.06-3.06C17.31 1.25 14.88 0 12 0 7.79 0 4.15 2.28 2.38 5.98l4-2.2C6.8 6.67 9.18 4.77 12 4.77z"
+              />
+            </svg>
+            <span>Recensione su Google</span>
+          </button>
+        </a>
+
+        <a
+          class="link-btn"
+          href="https://www.tripadvisor.it/UserReview-g187791-d229083-NH_Roma_Villa_Carpegna"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Apri pagina scrivi recensione su Tripadvisor"
+        >
+          <button class="btn tripadvisor-btn btn-with-icon">
+            <svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="30" fill="#00AF87" />
+              <circle cx="22" cy="32" r="11" fill="#fff" />
+              <circle cx="42" cy="32" r="11" fill="#fff" />
+              <circle cx="22" cy="32" r="5" fill="#1a1a1a" />
+              <circle cx="42" cy="32" r="5" fill="#1a1a1a" />
+              <path d="M32 42 L28 48 L36 48 Z" fill="#1a1a1a" />
+            </svg>
+            <span>Recensione su Tripadvisor</span>
+          </button>
+        </a>
+      </div>
+
+      <p class="small-note">
+        Il testo suggerito serve solo ad indicare la persona che ti ha seguito.<br>
+        Puoi modificarlo liberamente in qualsiasi canale di recensione.
+      </p>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div
+    id="copy-consent"
+    class="modal-mask"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="copy-title"
+  >
+    <div class="modal-box">
+      <div id="copy-title" class="modal-title">Copia negli appunti</div>
+      <p id="copy-body">Vuoi copiare questa frase negli appunti?</p>
+      <div class="modal-actions">
+        <button id="copy-allow" class="btn select-btn">Consenti copia</button>
+        <button id="copy-cancel" class="btn btn-outline">Annulla</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Lingue supportate e dizionari UI/Frasi
+    const SUPPORTED_LANGS = ["it", "en", "es", "fr", "de"];
+    let currentLang = "it";
+    let staffName = "il nostro staff";
+
+    const i18n = {
+      it: {
+        title: "Lascia una recensione",
+        subtitle: (name) => `Servizio ricevuto da ${name}`,
+        intro1: "Grazie per il tuo tempo!",
+        intro2: (name) =>
+          `Questa pagina ti aiuta a lasciare una recensione riferita al servizio ricevuto da ${name} presso NH Roma Villa Carpegna.`,
+        steps: [
+          "1. Scegli una delle frasi suggerite qui sotto (puoi anche modificarla dopo averla incollata).",
+          "2. Premi <b>Copia questa frase</b> sulla frase che preferisci.",
+          "3. Tocca il canale di recensione che preferisci (Google, Tripadvisor).",
+          "4. Incolla il testo all'inizio della recensione e scrivi il resto del tuo commento."
+        ],
+        option: (n) => `Opzione ${n}`,
+        copyBtn: "Copia questa frase",
+        regenBtn: "Genera nuove frasi",
+        sectionTitle: "Scegli dove lasciare la recensione",
+        googleBtn: "Recensione su Google",
+        tripBtn: "Recensione su Tripadvisor",
+        note:
+          "Il testo suggerito serve solo ad indicare la persona che ti ha seguito.<br>Puoi modificarlo liberamente in qualsiasi canale di recensione.",
+        copyDialogTitle: "Copia negli appunti",
+        copyDialogBody: "Vuoi copiare questa frase negli appunti?",
+        copyAllow: "Consenti copia",
+        copyCancel: "Annulla",
+        toastCopied: "Frase copiata negli appunti",
+        toastSelect:
+          "Impossibile copiare: testo selezionato, premi Copia"
+      },
+      en: {
+        title: "Leave a review",
+        subtitle: (name) => `Service received from ${name}`,
+        intro1: "Thank you for your time!",
+        intro2: (name) =>
+          `This page helps you leave a review referring to the service provided by ${name} at NH Roma Villa Carpegna.`,
+        steps: [
+          "1. Choose one of the suggested sentences (you can edit it after pasting).",
+          "2. Tap <b>Copy this sentence</b> on the one you prefer.",
+          "3. Select your review channel (Google, Tripadvisor).",
+          "4. Paste the text at the beginning and write the rest of your comment."
+        ],
+        option: (n) => `Option ${n}`,
+        copyBtn: "Copy this sentence",
+        regenBtn: "Generate new sentences",
+        sectionTitle: "Choose where to leave your review",
+        googleBtn: "Review on Google",
+        tripBtn: "Review on Tripadvisor",
+        note:
+          "The suggested text only indicates the person who assisted you.<br>You can freely edit it on any review channel.",
+        copyDialogTitle: "Copy to clipboard",
+        copyDialogBody:
+          "Do you want to copy this sentence to the clipboard?",
+        copyAllow: "Allow copy",
+        copyCancel: "Cancel",
+        toastCopied: "Sentence copied to clipboard",
+        toastSelect:
+          "Unable to copy: text selected, press Copy"
+      },
+      es: {
+        title: "Deja una reseña",
+        subtitle: (name) => `Servicio recibido de ${name}`,
+        intro1: "¡Gracias por tu tiempo!",
+        intro2: (name) =>
+          `Esta página te ayuda a dejar una reseña sobre el servicio recibido de ${name} en NH Roma Villa Carpegna.`,
+        steps: [
+          "1. Elige una de las frases sugeridas (puedes editarla tras pegarla).",
+          "2. Pulsa <b>Copiar esta frase</b> en la opción que prefieras.",
+          "3. Selecciona el canal (Google, Tripadvisor).",
+          "4. Pega el texto al principio y escribe el resto del comentario."
+        ],
+        option: (n) => `Opción ${n}`,
+        copyBtn: "Copiar esta frase",
+        regenBtn: "Generar nuevas frases",
+        sectionTitle: "Elige dónde dejar tu reseña",
+        googleBtn: "Reseña en Google",
+        tripBtn: "Reseña en Tripadvisor",
+        note:
+          "El texto sugerido solo indica a la persona que te atendió.<br>Puedes editarlo libremente en cualquier canal.",
+        copyDialogTitle: "Copiar al portapapeles",
+        copyDialogBody:
+          "¿Quieres copiar esta frase al portapapeles?",
+        copyAllow: "Permitir copia",
+        copyCancel: "Cancelar",
+        toastCopied: "Frase copiada al portapapeles",
+        toastSelect:
+          "No se pudo copiar: texto seleccionado, pulsa Copiar"
+      },
+      fr: {
+        title: "Laissez un avis",
+        subtitle: (name) => `Service reçu de ${name}`,
+        intro1: "Merci pour votre temps !",
+        intro2: (name) =>
+          `Cette page vous aide à laisser un avis sur le service reçu de ${name} à NH Roma Villa Carpegna.`,
+        steps: [
+          "1. Choisissez une phrase proposée (vous pouvez la modifier après l’avoir collée).",
+          "2. Appuyez sur <b>Copier cette phrase</b> pour celle que vous préférez.",
+          "3. Choisissez le canal (Google, Tripadvisor).",
+          "4. Collez le texte au début et écrivez le reste de votre commentaire."
+        ],
+        option: (n) => `Option ${n}`,
+        copyBtn: "Copier cette phrase",
+        regenBtn: "Générer de nouvelles phrases",
+        sectionTitle: "Choisissez où laisser votre avis",
+        googleBtn: "Avis sur Google",
+        tripBtn: "Avis sur Tripadvisor",
+        note:
+          "Le texte suggéré sert uniquement à indiquer la personne qui vous a assisté.<br>Vous pouvez le modifier sur n’importe quel canal.",
+        copyDialogTitle: "Copier dans le presse-papiers",
+        copyDialogBody:
+          "Voulez-vous copier cette phrase dans le presse-papiers ?",
+        copyAllow: "Autoriser la copie",
+        copyCancel: "Annuler",
+        toastCopied: "Phrase copiée dans le presse-papiers",
+        toastSelect:
+          "Impossible de copier : texte sélectionné, appuyez sur Copier"
+      },
+      de: {
+        title: "Bewertung abgeben",
+        subtitle: (name) => `Service erhalten von ${name}`,
+        intro1: "Vielen Dank für Ihre Zeit!",
+        intro2: (name) =>
+          `Diese Seite hilft Ihnen, eine Bewertung über den Service von ${name} im NH Roma Villa Carpegna abzugeben.`,
+        steps: [
+          "1. Wählen Sie einen der Vorschläge (Sie können ihn nach dem Einfügen bearbeiten).",
+          "2. Tippen Sie auf <b>Diesen Satz kopieren</b> bei Ihrer bevorzugten Option.",
+          "3. Wählen Sie Ihren Kanal (Google, Tripadvisor).",
+          "4. Fügen Sie den Text am Anfang ein und schreiben Sie Ihren Kommentar."
+        ],
+        option: (n) => `Option ${n}`,
+        copyBtn: "Diesen Satz kopieren",
+        regenBtn: "Neue Sätze generieren",
+        sectionTitle: "Wählen Sie, wo Sie bewerten möchten",
+        googleBtn: "Bewertung auf Google",
+        tripBtn: "Bewertung auf Tripadvisor",
+        note:
+          "Der vorgeschlagene Text dient nur dazu, die Person zu benennen, die Sie betreut hat.<br>Sie können ihn auf jedem Kanal frei bearbeiten.",
+        copyDialogTitle: "In die Zwischenablage kopieren",
+        copyDialogBody:
+          "Möchten Sie diesen Satz in die Zwischenablage kopieren?",
+        copyAllow: "Kopieren erlauben",
+        copyCancel: "Abbrechen",
+        toastCopied: "Satz in die Zwischenablage kopiert",
+        toastSelect:
+          "Kopieren nicht möglich: Text markiert, bitte auf Kopieren tippen"
+      }
+    };
+
+    const phrasesI18n = {
+      it: {
+        neutral: [
+          "Servizio ricevuto da {staff}, estremamente gentile e professionale.",
+          "Esperienza molto positiva grazie a {staff}.",
+          "Ringrazio {staff} per la disponibilità e la cortesia.",
+          "Ottima accoglienza da parte di {staff}.",
+          "Servizio impeccabile fornito da {staff}.",
+          "Cortesia e professionalità di {staff} davvero apprezzate.",
+          "Un grazie speciale a {staff} per l’assistenza.",
+          "Servizio rapido ed efficiente da parte di {staff}.",
+          "Molto soddisfatto del supporto ricevuto da {staff}.",
+          "Accoglienza calorosa grazie a {staff}.",
+          "Grande attenzione al cliente da parte di {staff}.",
+          "Servizio curato nei dettagli grazie a {staff}.",
+          "Personale molto gentile, in particolare {staff}.",
+          "Un ringraziamento a {staff} per la disponibilità.",
+          "Esperienza resa migliore grazie a {staff}.",
+          "Assistenza perfetta da parte di {staff}.",
+          "Professionalità evidente di {staff}.",
+          "Servizio puntuale e preciso da parte di {staff}.",
+          "Accoglienza e gentilezza di {staff} straordinarie.",
+          "Cordialità e competenza di {staff} molto apprezzate.",
+          "Ottimo servizio clienti grazie a {staff}.",
+          "Staff attento, soprattutto {staff}.",
+          "Servizio gestito con grande cura da {staff}.",
+          "Disponibilità totale da parte di {staff}.",
+          "Molto soddisfatto dell’assistenza di {staff}.",
+          "Professionalità e cortesia di {staff} impeccabili.",
+          "Grazie a {staff} per l’ottimo servizio.",
+          "Esperienza fluida grazie a {staff}.",
+          "Servizio preciso e cordiale da parte di {staff}.",
+          "Accoglienza curata e professionale grazie a {staff}.",
+          "Servizio di alto livello grazie a {staff}.",
+          "Grande professionalità dimostrata da {staff}.",
+          "Sempre disponibili, soprattutto {staff}.",
+          "Accoglienza impeccabile da parte di {staff}.",
+          "Servizio estremamente curato da {staff}.",
+          "Cordialità e grande attenzione grazie a {staff}.",
+          "Assistenza completa da parte di {staff}.",
+          "Staff preparato, in particolare {staff}.",
+          "Un servizio che fa la differenza grazie a {staff}.",
+          "Esperienza gestita con grande professionalità da {staff}."
+        ],
+        emotional: [
+          "Grazie a {staff} mi sono sentito subito a mio agio.",
+          "Un’accoglienza che ti mette di buon umore grazie a {staff}.",
+          "La gentilezza di {staff} ha reso tutto più semplice.",
+          "Un sorriso e tanta disponibilità da parte di {staff}.",
+          "{staff} ha fatto davvero la differenza nella mia esperienza.",
+          "Mi sono sentito seguito con attenzione da {staff}.",
+          "L’energia positiva di {staff} si percepisce subito.",
+          "Un servizio che ti fa sentire il benvenuto, grazie a {staff}.",
+          "Disponibilità e cura grazie a {staff}.",
+          "Esperienza piacevole grazie all’attenzione di {staff}.",
+          "Un’accoglienza che resta impressa grazie a {staff}.",
+          "Gentilezza sincera da parte di {staff}.",
+          "Servizio che trasmette serenità grazie a {staff}.",
+          "Un supporto davvero rassicurante da parte di {staff}.",
+          "{staff} è stato sempre presente al momento giusto.",
+          "Un servizio che fa sentire il cliente importante grazie a {staff}.",
+          "Cordialità che si nota subito grazie a {staff}.",
+          "Un tocco umano che fa la differenza grazie a {staff}.",
+          "Mi sono sentito accolto con grande naturalezza da {staff}.",
+          "La disponibilità di {staff} è stata davvero apprezzata.",
+          "Un’esperienza positiva anche grazie all’attenzione di {staff}.",
+          "Il modo di fare di {staff} trasmette fiducia.",
+          "Un’assistenza che mette a proprio agio grazie a {staff}.",
+          "{staff} ha reso tutto più semplice e piacevole.",
+          "Un servizio umano e attento grazie a {staff}.",
+          "Presenza costante e rassicurante da parte di {staff}.",
+          "Un’accoglienza che fa sentire subito bene grazie a {staff}.",
+          "Gentilezza autentica da parte di {staff}.",
+          "Un servizio che lascia una sensazione positiva grazie a {staff}.",
+          "Grande attenzione alle persone grazie a {staff}."
+        ],
+        premium: [
+          "Servizio elegante e raffinato grazie a {staff}.",
+          "Un’assistenza di livello superiore da parte di {staff}.",
+          "Esperienza curata con stile grazie a {staff}.",
+          "Professionalità di alto profilo grazie a {staff}.",
+          "Un servizio che rispecchia uno standard elevato grazie a {staff}.",
+          "Cura del dettaglio evidente grazie a {staff}.",
+          "Accoglienza di classe da parte di {staff}.",
+          "Servizio all’altezza di una struttura di livello grazie a {staff}.",
+          "Un supporto discreto ed efficace grazie a {staff}.",
+          "Stile e professionalità riuniti grazie a {staff}.",
+          "Un servizio che comunica qualità grazie a {staff}.",
+          "Esperienza gestita con grande eleganza da {staff}.",
+          "Un’accoglienza che rispecchia uno standard premium grazie a {staff}.",
+          "Servizio che trasmette affidabilità grazie a {staff}.",
+          "Gestione impeccabile grazie alla professionalità di {staff}.",
+          "Un servizio che valorizza l’esperienza complessiva grazie a {staff}.",
+          "Attenzione e classe grazie a {staff}.",
+          "Un supporto sempre presente e misurato grazie a {staff}.",
+          "Eleganza operativa e precisione grazie a {staff}.",
+          "Un servizio che rispecchia pienamente l’alto livello della struttura grazie a {staff}.",
+          "Cura, attenzione e stile grazie a {staff}.",
+          "Un’assistenza che trasmette sicurezza grazie a {staff}.",
+          "Professionalità che si nota nei piccoli dettagli grazie a {staff}.",
+          "Un servizio sobrio ed efficace grazie a {staff}.",
+          "Esperienza gestita con grande equilibrio e precisione grazie a {staff}.",
+          "Un’accoglienza che trasmette qualità grazie a {staff}.",
+          "Servizio che comunica affidabilità e cura grazie a {staff}.",
+          "Un supporto elegante e sempre presente grazie a {staff}.",
+          "Gestione fluida e professionale grazie a {staff}.",
+          "Esperienza condotta con stile grazie a {staff}."
+        ]
+      },
+      en: {
+        neutral: [
+          "Service received from {staff}, extremely kind and professional.",
+          "Very positive experience thanks to {staff}.",
+          "Thanks to {staff} for their availability and courtesy.",
+          "Excellent welcome from {staff}.",
+          "Impeccable service provided by {staff}.",
+          "Courtesy and professionalism of {staff} truly appreciated.",
+          "A special thanks to {staff} for the assistance.",
+          "Fast and efficient service from {staff}.",
+          "Very satisfied with the support received from {staff}.",
+          "Warm welcome thanks to {staff}.",
+          "Great attention to the customer from {staff}.",
+          "Service cared for in detail thanks to {staff}.",
+          "Very kind staff, especially {staff}.",
+          "Many thanks to {staff} for their availability.",
+          "Experience made better thanks to {staff}.",
+          "Perfect assistance from {staff}.",
+          "Evident professionalism of {staff}.",
+          "Punctual and precise service from {staff}.",
+          "Extraordinary welcome and kindness from {staff}.",
+          "Friendliness and competence of {staff} highly appreciated.",
+          "Excellent customer service thanks to {staff}.",
+          "Attentive staff, especially {staff}.",
+          "Service handled with great care by {staff}.",
+          "Total availability from {staff}.",
+          "Very satisfied with the assistance from {staff}.",
+          "Impeccable professionalism and courtesy of {staff}.",
+          "Thanks to {staff} for the great service.",
+          "Smooth experience thanks to {staff}.",
+          "Precise and friendly service from {staff}.",
+          "Well-curated and professional welcome thanks to {staff}.",
+          "High-level service thanks to {staff}.",
+          "Great professionalism demonstrated by {staff}.",
+          "Always available, especially {staff}.",
+          "Impeccable welcome from {staff}.",
+          "Extremely well-curated service from {staff}.",
+          "Friendliness and great attention thanks to {staff}.",
+          "Complete assistance from {staff}.",
+          "Well-prepared staff, in particular {staff}.",
+          "A service that makes the difference thanks to {staff}.",
+          "Experience managed with great professionalism by {staff}."
+        ],
+        emotional: [
+          "Thanks to {staff} I immediately felt at ease.",
+          "A welcome that lifts your mood thanks to {staff}.",
+          "The kindness of {staff} made everything easier.",
+          "A smile and great helpfulness from {staff}.",
+          "{staff} truly made the difference in my experience.",
+          "I felt carefully looked after by {staff}.",
+          "The positive energy of {staff} is felt right away.",
+          "A service that makes you feel welcome, thanks to {staff}.",
+          "Availability and care thanks to {staff}.",
+          "Pleasant experience thanks to {staff}'s attention.",
+          "A welcome that stays with you thanks to {staff}.",
+          "Sincere kindness from {staff}.",
+          "A service that conveys calm thanks to {staff}.",
+          "Truly reassuring support from {staff}.",
+          "{staff} was always there at the right moment.",
+          "A service that makes the guest feel important thanks to {staff}.",
+          "Warm cordiality immediately noticeable thanks to {staff}.",
+          "A human touch that makes the difference thanks to {staff}.",
+          "I felt naturally welcomed by {staff}.",
+          "The availability of {staff} was truly appreciated.",
+          "A positive experience also thanks to {staff}'s attention.",
+          "The manner of {staff} inspires confidence.",
+          "Assistance that puts you at ease thanks to {staff}.",
+          "{staff} made everything simpler and more pleasant.",
+          "A human and attentive service thanks to {staff}.",
+          "Constant and reassuring presence from {staff}.",
+          "A welcome that makes you feel good right away thanks to {staff}.",
+          "Genuine kindness from {staff}.",
+          "A service that leaves a positive feeling thanks to {staff}.",
+          "Great attention to people thanks to {staff}."
+        ],
+        premium: [
+          "Elegant and refined service thanks to {staff}.",
+          "A superior-level assistance from {staff}.",
+          "Experience curated with style thanks to {staff}.",
+          "High-profile professionalism thanks to {staff}.",
+          "A service that reflects an elevated standard thanks to {staff}.",
+          "Attention to detail evident thanks to {staff}.",
+          "Classy welcome from {staff}.",
+          "Service up to a high-level property thanks to {staff}.",
+          "Discreet and effective support thanks to {staff}.",
+          "Style and professionalism combined thanks to {staff}.",
+          "A service that communicates quality thanks to {staff}.",
+          "Experience managed with great elegance by {staff}.",
+          "A welcome that reflects a premium standard thanks to {staff}.",
+          "Service that conveys reliability thanks to {staff}.",
+          "Impeccable management thanks to {staff}'s professionalism.",
+          "A service that enhances the overall experience thanks to {staff}.",
+          "Attention and class thanks to {staff}.",
+          "Support that is always present and measured thanks to {staff}.",
+          "Operational elegance and precision thanks to {staff}.",
+          "A service that fully reflects the hotel's high level thanks to {staff}.",
+          "Care, attention and style thanks to {staff}.",
+          "Assistance that conveys confidence thanks to {staff}.",
+          "Professionalism visible in the small details thanks to {staff}.",
+          "A sober and effective service thanks to {staff}.",
+          "Experience managed with great balance and precision thanks to {staff}.",
+          "A welcome that conveys quality thanks to {staff}.",
+          "Service that communicates reliability and care thanks to {staff}.",
+          "Elegant and always present support thanks to {staff}.",
+          "Smooth and professional management thanks to {staff}.",
+          "Experience conducted with style thanks to {staff}."
+        ]
+      },
+      es: {
+        neutral: [
+          "Servicio recibido de {staff}, extremadamente amable y profesional.",
+          "Experiencia muy positiva gracias a {staff}.",
+          "Agradezco a {staff} su disponibilidad y cortesía.",
+          "Excelente bienvenida por parte de {staff}.",
+          "Servicio impecable ofrecido por {staff}.",
+          "La cortesía y profesionalidad de {staff} muy apreciadas.",
+          "Un agradecimiento especial a {staff} por la asistencia.",
+          "Servicio rápido y eficiente por parte de {staff}.",
+          "Muy satisfecho con el apoyo recibido de {staff}.",
+          "Acogida cálida gracias a {staff}.",
+          "Gran atención al cliente por parte de {staff}.",
+          "Servicio cuidado en los detalles gracias a {staff}.",
+          "Personal muy amable, en particular {staff}.",
+          "Un agradecimiento a {staff} por su disponibilidad.",
+          "Experiencia mejorada gracias a {staff}.",
+          "Asistencia perfecta por parte de {staff}.",
+          "Profesionalidad evidente de {staff}.",
+          "Servicio puntual y preciso por parte de {staff}.",
+          "Acogida y amabilidad extraordinarias de {staff}.",
+          "Cordialidad y competencia de {staff} muy apreciadas.",
+          "Excelente servicio al cliente gracias a {staff}.",
+          "Personal atento, especialmente {staff}.",
+          "Servicio gestionado con gran cuidado por {staff}.",
+          "Total disponibilidad por parte de {staff}.",
+          "Muy satisfecho con la asistencia de {staff}.",
+          "Profesionalidad y cortesía impecables de {staff}.",
+          "Gracias a {staff} por el excelente servicio.",
+          "Experiencia fluida gracias a {staff}.",
+          "Servicio preciso y cordial por parte de {staff}.",
+          "Acogida cuidada y profesional gracias a {staff}.",
+          "Servicio de alto nivel gracias a {staff}.",
+          "Gran profesionalidad demostrada por {staff}.",
+          "Siempre disponibles, sobre todo {staff}.",
+          "Acogida impecable por parte de {staff}.",
+          "Servicio extremadamente cuidado por {staff}.",
+          "Cordialidad y gran atención gracias a {staff}.",
+          "Asistencia completa por parte de {staff}.",
+          "Personal preparado, en particular {staff}.",
+          "Un servicio que marca la diferencia gracias a {staff}.",
+          "Experiencia gestionada con gran profesionalidad por {staff}."
+        ],
+        emotional: [
+          "Gracias a {staff} me sentí enseguida a gusto.",
+          "Una acogida que mejora el ánimo gracias a {staff}.",
+          "La amabilidad de {staff} hizo todo más fácil.",
+          "Una sonrisa y gran disponibilidad por parte de {staff}.",
+          "{staff} realmente marcó la diferencia en mi experiencia.",
+          "Me sentí atendido con atención por {staff}.",
+          "La energía positiva de {staff} se nota de inmediato.",
+          "Un servicio que te hace sentir bienvenido, gracias a {staff}.",
+          "Disponibilidad y cuidado gracias a {staff}.",
+          "Experiencia agradable gracias a la atención de {staff}.",
+          "Una acogida que deja huella gracias a {staff}.",
+          "Amabilidad sincera por parte de {staff}.",
+          "Un servicio que transmite serenidad gracias a {staff}.",
+          "Un apoyo verdaderamente tranquilizador por parte de {staff}.",
+          "{staff} estuvo siempre presente en el momento justo.",
+          "Un servicio que hace sentir importante al cliente gracias a {staff}.",
+          "Cordialidad que se nota de inmediato gracias a {staff}.",
+          "Un toque humano que marca la diferencia gracias a {staff}.",
+          "Me sentí acogido con gran naturalidad por {staff}.",
+          "La disponibilidad de {staff} fue muy apreciada.",
+          "Una experiencia positiva también gracias a la atención de {staff}.",
+          "La forma de ser de {staff} transmite confianza.",
+          "Una asistencia que pone a gusto gracias a {staff}.",
+          "{staff} hizo todo más sencillo y agradable.",
+          "Un servicio humano y atento gracias a {staff}.",
+          "Presencia constante y tranquilizadora por parte de {staff}.",
+          "Una acogida que te hace sentir bien enseguida gracias a {staff}.",
+          "Amabilidad auténtica por parte de {staff}.",
+          "Un servicio que deja una sensación positiva gracias a {staff}.",
+          "Gran atención a las personas gracias a {staff}."
+        ],
+        premium: [
+          "Servicio elegante y refinado gracias a {staff}.",
+          "Una asistencia de nivel superior por parte de {staff}.",
+          "Experiencia cuidada con estilo gracias a {staff}.",
+          "Profesionalidad de alto perfil gracias a {staff}.",
+          "Un servicio que refleja un estándar elevado gracias a {staff}.",
+          "Atención al detalle evidente gracias a {staff}.",
+          "Acogida de clase por parte de {staff}.",
+          "Servicio a la altura de una estructura de nivel gracias a {staff}.",
+          "Apoyo discreto y eficaz gracias a {staff}.",
+          "Estilo y profesionalidad reunidos gracias a {staff}.",
+          "Un servicio que comunica calidad gracias a {staff}.",
+          "Experiencia gestionada con gran elegancia por {staff}.",
+          "Una acogida que refleja un estándar premium gracias a {staff}.",
+          "Servicio que transmite fiabilidad gracias a {staff}.",
+          "Gestión impecable gracias a la profesionalidad de {staff}.",
+          "Un servicio que valoriza la experiencia global gracias a {staff}.",
+          "Atención y clase gracias a {staff}.",
+          "Un apoyo siempre presente y equilibrado gracias a {staff}.",
+          "Elegancia operativa y precisión gracias a {staff}.",
+          "Un servicio que refleja plenamente el alto nivel del hotel gracias a {staff}.",
+          "Cuidado, atención y estilo gracias a {staff}.",
+          "Una asistencia que transmite seguridad gracias a {staff}.",
+          "Profesionalidad que se nota en los pequeños detalles gracias a {staff}.",
+          "Un servicio sobrio y eficaz gracias a {staff}.",
+          "Experiencia gestionada con gran equilibrio y precisión gracias a {staff}.",
+          "Una acogida que transmite calidad gracias a {staff}.",
+          "Servicio que comunica fiabilidad y cuidado gracias a {staff}.",
+          "Un apoyo elegante y siempre presente gracias a {staff}.",
+          "Gestión fluida y profesional gracias a {staff}.",
+          "Experiencia conducida con estilo gracias a {staff}."
+        ]
+      },
+      fr: {
+        neutral: [
+          "Service reçu de la part de {staff}, extrêmement aimable et professionnel.",
+          "Expérience très positive grâce à {staff}.",
+          "Merci à {staff} pour sa disponibilité et sa courtoisie.",
+          "Excellente accueil de la part de {staff}.",
+          "Service irréprochable fourni par {staff}.",
+          "La courtoisie et le professionnalisme de {staff} très appréciés.",
+          "Un remerciement spécial à {staff} pour son assistance.",
+          "Service rapide et efficace de la part de {staff}.",
+          "Très satisfait du soutien reçu de {staff}.",
+          "Accueil chaleureux grâce à {staff}.",
+          "Grande attention portée au client par {staff}.",
+          "Service soigné dans les détails grâce à {staff}.",
+          "Personnel très aimable, en particulier {staff}.",
+          "Un remerciement à {staff} pour sa disponibilité.",
+          "Expérience améliorée grâce à {staff}.",
+          "Assistance parfaite de la part de {staff}.",
+          "Professionnalisme évident de {staff}.",
+          "Service ponctuel et précis de la part de {staff}.",
+          "Accueil et gentillesse extraordinaires de {staff}.",
+          "Cordialité et compétence de {staff} très appréciées.",
+          "Excellent service client grâce à {staff}.",
+          "Personnel attentif, surtout {staff}.",
+          "Service géré avec grand soin par {staff}.",
+          "Disponibilité totale de la part de {staff}.",
+          "Très satisfait de l’assistance de {staff}.",
+          "Professionnalisme et courtoisie impeccables de {staff}.",
+          "Merci à {staff} pour l’excellent service.",
+          "Expérience fluide grâce à {staff}.",
+          "Service précis et cordial de la part de {staff}.",
+          "Accueil soigné et professionnel grâce à {staff}.",
+          "Service de haut niveau grâce à {staff}.",
+          "Grande professionnalité démontrée par {staff}.",
+          "Toujours disponible, en particulier {staff}.",
+          "Accueil impeccable de la part de {staff}.",
+          "Service extrêmement soigné par {staff}.",
+          "Cordialité et grande attention grâce à {staff}.",
+          "Assistance complète de la part de {staff}.",
+          "Personnel compétent, en particulier {staff}.",
+          "Un service qui fait la différence grâce à {staff}.",
+          "Expérience gérée avec une grande professionnalité par {staff}."
+        ],
+        emotional: [
+          "Grâce à {staff}, je me suis senti immédiatement à l’aise.",
+          "Un accueil qui met de bonne humeur grâce à {staff}.",
+          "La gentillesse de {staff} a tout rendu plus simple.",
+          "Un sourire et une grande disponibilité de la part de {staff}.",
+          "{staff} a vraiment fait la différence dans mon expérience.",
+          "Je me suis senti accompagné avec attention par {staff}.",
+          "L’énergie positive de {staff} se ressent immédiatement.",
+          "Un service qui vous fait vous sentir le bienvenu, grâce à {staff}.",
+          "Disponibilité et soin grâce à {staff}.",
+          "Expérience agréable grâce à l’attention de {staff}.",
+          "Un accueil qui laisse une impression durable grâce à {staff}.",
+          "Gentillesse sincère de la part de {staff}.",
+          "Un service qui transmet de la sérénité grâce à {staff}.",
+          "Un soutien vraiment rassurant de la part de {staff}.",
+          "{staff} a toujours été présent au bon moment.",
+          "Un service qui fait se sentir le client important grâce à {staff}.",
+          "Une cordialité qui se remarque tout de suite grâce à {staff}.",
+          "Une touche humaine qui fait la différence grâce à {staff}.",
+          "Je me suis senti accueilli avec beaucoup de naturel par {staff}.",
+          "La disponibilité de {staff} a été vraiment appréciée.",
+          "Une expérience positive aussi grâce à l’attention de {staff}.",
+          "La façon d’être de {staff} inspire confiance.",
+          "Une assistance qui met à l’aise grâce à {staff}.",
+          "{staff} a rendu tout plus simple et agréable.",
+          "Un service humain et attentif grâce à {staff}.",
+          "Présence constante et rassurante de la part de {staff}.",
+          "Un accueil qui fait se sentir bien immédiatement grâce à {staff}.",
+          "Gentillesse authentique de la part de {staff}.",
+          "Un service qui laisse une sensation positive grâce à {staff}.",
+          "Grande attention portée aux personnes grâce à {staff}."
+        ],
+        premium: [
+          "Service élégant et raffiné grâce à {staff}.",
+          "Une assistance de niveau supérieur de la part de {staff}.",
+          "Expérience soignée avec style grâce à {staff}.",
+          "Professionnalisme de haut profil grâce à {staff}.",
+          "Un service qui reflète un standard élevé grâce à {staff}.",
+          "Attention au détail évidente grâce à {staff}.",
+          "Accueil de classe de la part de {staff}.",
+          "Service à la hauteur d’un établissement de niveau grâce à {staff}.",
+          "Soutien discret et efficace grâce à {staff}.",
+          "Style et professionnalisme réunis grâce à {staff}.",
+          "Un service qui communique la qualité grâce à {staff}.",
+          "Expérience gérée avec grande élégance par {staff}.",
+          "Un accueil qui reflète un standard premium grâce à {staff}.",
+          "Service qui transmet la fiabilité grâce à {staff}.",
+          "Gestion impeccable grâce au professionnalisme de {staff}.",
+          "Un service qui valorise l’expérience globale grâce à {staff}.",
+          "Attention et classe grâce à {staff}.",
+          "Un soutien toujours présent et mesuré grâce à {staff}.",
+          "Élégance opérationnelle et précision grâce à {staff}.",
+          "Un service qui reflète pleinement le haut niveau de l’hôtel grâce à {staff}.",
+          "Soin, attention et style grâce à {staff}.",
+          "Une assistance qui transmet de la sécurité grâce à {staff}.",
+          "Professionnalisme visible dans les moindres détails grâce à {staff}.",
+          "Un service sobre et efficace grâce à {staff}.",
+          "Expérience gérée avec grand équilibre et précision grâce à {staff}.",
+          "Un accueil qui transmet la qualité grâce à {staff}.",
+          "Service qui communique fiabilité et soin grâce à {staff}.",
+          "Un soutien élégant et toujours présent grâce à {staff}.",
+          "Gestion fluide et professionnelle grâce à {staff}.",
+          "Expérience conduite avec style grâce à {staff}."
+        ]
+      },
+      de: {
+        neutral: [
+          "Service von {staff}, äußerst freundlich und professionell.",
+          "Sehr positive Erfahrung dank {staff}.",
+          "Danke an {staff} für die Verfügbarkeit und Höflichkeit.",
+          "Hervorragender Empfang durch {staff}.",
+          "Einwandfreier Service von {staff}.",
+          "Freundlichkeit und Professionalität von {staff} sehr geschätzt.",
+          "Ein besonderer Dank an {staff} für die Unterstützung.",
+          "Schneller und effizienter Service von {staff}.",
+          "Sehr zufrieden mit der Unterstützung durch {staff}.",
+          "Herzlicher Empfang dank {staff}.",
+          "Große Aufmerksamkeit für den Kunden durch {staff}.",
+          "Sorgfältiger Service bis ins Detail dank {staff}.",
+          "Sehr freundliches Personal, insbesondere {staff}.",
+          "Ein Dank an {staff} für die Verfügbarkeit.",
+          "Erfahrung verbessert dank {staff}.",
+          "Perfekte Unterstützung durch {staff}.",
+          "Offensichtliche Professionalität von {staff}.",
+          "Pünktlicher und präziser Service von {staff}.",
+          "Außergewöhnlicher Empfang und Freundlichkeit von {staff}.",
+          "Herzlichkeit und Kompetenz von {staff} sehr geschätzt.",
+          "Ausgezeichneter Kundenservice dank {staff}.",
+          "Aufmerksames Team, besonders {staff}.",
+          "Mit großer Sorgfalt betreuter Service durch {staff}.",
+          "Volle Verfügbarkeit von {staff}.",
+          "Sehr zufrieden mit der Betreuung durch {staff}.",
+          "Makellose Professionalität und Höflichkeit von {staff}.",
+          "Danke an {staff} für den ausgezeichneten Service.",
+          "Reibungslose Erfahrung dank {staff}.",
+          "Präziser und zuvorkommender Service von {staff}.",
+          "Sorgfältiger und professioneller Empfang dank {staff}.",
+          "Service auf hohem Niveau dank {staff}.",
+          "Große Professionalität gezeigt von {staff}.",
+          "Immer verfügbar, vor allem {staff}.",
+          "Makelloser Empfang durch {staff}.",
+          "Äußerst sorgfältiger Service von {staff}.",
+          "Herzlichkeit und große Aufmerksamkeit dank {staff}.",
+          "Umfassende Unterstützung durch {staff}.",
+          "Gut vorbereitetes Team, insbesondere {staff}.",
+          "Ein Service, der den Unterschied macht, dank {staff}.",
+          "Erfahrung mit großer Professionalität betreut von {staff}."
+        ],
+        emotional: [
+          "Dank {staff} fühlte ich mich sofort wohl.",
+          "Ein Empfang, der die Laune hebt, dank {staff}.",
+          "Die Freundlichkeit von {staff} machte alles einfacher.",
+          "Ein Lächeln und große Hilfsbereitschaft von {staff}.",
+          "{staff} hat meinen Aufenthalt wirklich positiv geprägt.",
+          "Ich fühlte mich von {staff} aufmerksam betreut.",
+          "Die positive Energie von {staff} spürt man sofort.",
+          "Ein Service, der einen willkommen fühlen lässt, dank {staff}.",
+          "Verfügbarkeit und Fürsorge dank {staff}.",
+          "Angenehme Erfahrung dank der Aufmerksamkeit von {staff}.",
+          "Ein Empfang, der in Erinnerung bleibt, dank {staff}.",
+          "Aufrichtige Freundlichkeit von {staff}.",
+          "Ein Service, der Ruhe vermittelt, dank {staff}.",
+          "Wirklich beruhigende Unterstützung durch {staff}.",
+          "{staff} war immer zum richtigen Zeitpunkt da.",
+          "Ein Service, der den Gast wichtig fühlen lässt, dank {staff}.",
+          "Spürbare Herzlichkeit gleich zu Beginn dank {staff}.",
+          "Eine menschliche Note, die den Unterschied macht, dank {staff}.",
+          "Ich fühlte mich ganz natürlich willkommen bei {staff}.",
+          "Die Verfügbarkeit von {staff} wurde sehr geschätzt.",
+          "Eine positive Erfahrung auch dank der Aufmerksamkeit von {staff}.",
+          "Die Art und Weise von {staff} schafft Vertrauen.",
+          "Eine Betreuung, die auf Anhieb entspannt, dank {staff}.",
+          "{staff} machte alles einfacher und angenehmer.",
+          "Ein menschlicher und aufmerksamer Service dank {staff}.",
+          "Ständige und beruhigende Präsenz von {staff}.",
+          "Ein Empfang, der sofort ein gutes Gefühl gibt, dank {staff}.",
+          "Echte, aufrichtige Freundlichkeit von {staff}.",
+          "Ein Service, der ein positives Gefühl hinterlässt, dank {staff}.",
+          "Große Aufmerksamkeit für Menschen dank {staff}."
+        ],
+        premium: [
+          "Eleganter und raffinierter Service dank {staff}.",
+          "Unterstützung auf gehobenem Niveau durch {staff}.",
+          "Mit Stil kurierte Erfahrung dank {staff}.",
+          "Professionalität auf hohem Niveau dank {staff}.",
+          "Ein Service, der einen hohen Standard widerspiegelt, dank {staff}.",
+          "Offensichtliche Liebe zum Detail dank {staff}.",
+          "Empfang mit Klasse durch {staff}.",
+          "Ein Service auf dem Niveau eines Spitzenhauses dank {staff}.",
+          "Diskrete und effektive Unterstützung dank {staff}.",
+          "Stil und Professionalität vereint dank {staff}.",
+          "Ein Service, der Qualität vermittelt, dank {staff}.",
+          "Erfahrung mit großer Eleganz betreut von {staff}.",
+          "Ein Empfang, der einem Premium-Standard entspricht, dank {staff}.",
+          "Ein Service, der Verlässlichkeit vermittelt, dank {staff}.",
+          "Makelloses Management dank der Professionalität von {staff}.",
+          "Ein Service, der die Gesamterfahrung aufwertet, dank {staff}.",
+          "Aufmerksamkeit und Klasse dank {staff}.",
+          "Stets präsente und angemessene Unterstützung dank {staff}.",
+          "Operative Eleganz und Präzision dank {staff}.",
+          "Ein Service, der das hohe Niveau des Hauses voll widerspiegelt, dank {staff}.",
+          "Sorgfalt, Aufmerksamkeit und Stil dank {staff}.",
+          "Unterstützung, die Sicherheit vermittelt, dank {staff}.",
+          "Professionalität, sichtbar in den kleinen Details, dank {staff}.",
+          "Schlichter und wirkungsvoller Service dank {staff}.",
+          "Erfahrung mit großem Gleichgewicht und Präzision betreut von {staff}.",
+          "Ein Empfang, der Qualität vermittelt, dank {staff}.",
+          "Ein Service, der Verlässlichkeit und Fürsorge kommuniziert, dank {staff}.",
+          "Elegante und stets präsente Unterstützung dank {staff}.",
+          "Reibungslose und professionelle Betreuung dank {staff}.",
+          "Erfahrung mit Stil durchgeführt dank {staff}."
+        ]
+      }
+    };
+
+    // Determina la lingua finale secondo le regole: override URL → rilevata → fallback
+    function getPreferredLanguage() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const fromUrl = params.get("lang");
+        const candidate =
+          (fromUrl ||
+            (navigator.languages && navigator.languages[0]) ||
+            navigator.language ||
+            "").
+          toLowerCase();
+        const short = candidate.slice(0, 2);
+        if (!short) return "it";
+        if (SUPPORTED_LANGS.includes(short)) return short;
+        return "en";
+      } catch {
+        return "it";
+      }
+    }
+
+    function updateLangBadge(lang) {
+      const badge = document.getElementById("lang-badge");
+      if (!badge) return;
+      const map = { it: "IT", en: "EN", es: "ES", fr: "FR", de: "DE" };
+      badge.textContent = map[lang] || lang.toUpperCase();
+    }
+
+    // Applica i testi UI localizzati
+    function applyTranslations(lang, staffNameValue) {
+      const t = i18n[lang] || i18n.it;
+
+      const h2 = document.querySelector("h2");
+      const h3 = document.querySelector("h3");
+      const introP = document.querySelector(".intro-text");
+      const stepsList = document.getElementById("steps-list");
+      const labels = document.querySelectorAll(".frase-block label");
+      const copyBtns = document.querySelectorAll(".frase-block .select-btn");
+      const regenBtn = document.querySelector(".regen-btn");
+      const sectionTitle = document.querySelector(".section-title");
+      const googleText = document.querySelector(".google-btn span");
+      const tripText = document.querySelector(".tripadvisor-btn span");
+      const note = document.querySelector(".small-note");
+      const copyTitle = document.getElementById("copy-title");
+      const copyBody = document.getElementById("copy-body");
+      const copyAllow = document.getElementById("copy-allow");
+      const copyCancel = document.getElementById("copy-cancel");
+
+      if (h2) h2.textContent = t.title;
+      if (h3) h3.textContent = t.subtitle(staffNameValue);
+
+      if (introP) {
+        introP.innerHTML = `${t.intro1}<br>${t.intro2(
+          `<b><span id="staff-name-2">${staffNameValue}</span></b>`
+        )}`;
+      }
+
+      if (stepsList) {
+        stepsList.innerHTML = "";
+        t.steps.forEach((step) => {
+          const li = document.createElement("li");
+          li.innerHTML = step;
+          stepsList.appendChild(li);
+        });
+      }
+
+      if (labels[0]) labels[0].textContent = t.option(1);
+      if (labels[1]) labels[1].textContent = t.option(2);
+      if (labels[2]) labels[2].textContent = t.option(3);
+
+      copyBtns.forEach((btn) => {
+        btn.textContent = t.copyBtn;
+      });
+
+      if (regenBtn) regenBtn.textContent = t.regenBtn;
+      if (sectionTitle) sectionTitle.textContent = t.sectionTitle;
+      if (googleText) googleText.textContent = t.googleBtn;
+      if (tripText) tripText.textContent = t.tripBtn;
+      if (note) note.innerHTML = t.note;
+
+      if (copyTitle) copyTitle.textContent = t.copyDialogTitle;
+      if (copyBody) copyBody.textContent = t.copyDialogBody;
+      if (copyAllow) copyAllow.textContent = t.copyAllow;
+      if (copyCancel) copyCancel.textContent = t.copyCancel;
+    }
+
+    // Genera tre frasi locali sostituendo il placeholder {staff}
+    function preparaFrasiI18n(lang, staffNameValue) {
+      const sets = phrasesI18n[lang] || phrasesI18n.it;
+      const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+      const f1 = pick(sets.neutral).replace("{staff}", staffNameValue);
+      const f2 = pick(sets.emotional).replace("{staff}", staffNameValue);
+      const f3 = pick(sets.premium).replace("{staff}", staffNameValue);
+      document.getElementById("frase1").value = f1;
+      document.getElementById("frase2").value = f2;
+      document.getElementById("frase3").value = f3;
+    }
+
+    // Wrapper richiamato dal pulsante "Genera nuove frasi"
+    function preparaFrasi() {
+      preparaFrasiI18n(currentLang, staffName);
+    }
+
+    // Estrae il nome dello staff dai parametri URL (?staff=Nome)
+    function getStaffNameFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("staff");
+      const cleaned =
+        name && name.trim() !== "" ? name.trim() : "il nostro staff";
+      return cleaned;
+    }
+
+    // Mostra un toast non modale usando chiave i18n
+    function showToast(key) {
+      const el = document.getElementById("toast");
+      if (!el) return;
+      const t = i18n[currentLang] || i18n.it;
+      const message = t[key] || "";
+      if (!message) return;
+      el.textContent = message;
+      el.classList.add("show");
+      setTimeout(() => el.classList.remove("show"), 1800);
+    }
+
+    // Tenta la copia con Clipboard API o execCommand
+    async function tryCopyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      let ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch {}
+      document.body.removeChild(ta);
+      return ok;
+    }
+
+    // Copia o seleziona con messaggio
+    async function copyOrSelect(box) {
+      const text = box.value;
+      const ok = await tryCopyText(text);
+      if (ok) {
+        showToast("toastCopied");
+      } else {
+        box.focus();
+        box.select();
+        showToast("toastSelect");
+      }
+    }
+
+    // Gestisce la copia con consenso opzionale (?consent=1)
+    async function selectText(id) {
+      const box = document.getElementById(id);
+      if (!box) return;
+      const consent =
+        new URLSearchParams(window.location.search).get("consent") === "1";
+      if (consent) {
+        const mask = document.getElementById("copy-consent");
+        const allow = document.getElementById("copy-allow");
+        const cancel = document.getElementById("copy-cancel");
+        mask.classList.add("show");
+
+        const onAllow = async () => {
+          mask.classList.remove("show");
+          allow.removeEventListener("click", onAllow);
+          cancel.removeEventListener("click", onCancel);
+          await copyOrSelect(box);
+        };
+
+        const onCancel = () => {
+          mask.classList.remove("show");
+          allow.removeEventListener("click", onAllow);
+          cancel.removeEventListener("click", onCancel);
+        };
+
+        allow.addEventListener("click", onAllow);
+        cancel.addEventListener("click", onCancel);
+      } else {
+        await copyOrSelect(box);
+      }
+    }
+
+    // Inizializza pagina al caricamento
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const logoParam = params.get("logo");
+      const logoImg = document.getElementById("nh-logo");
+      if (logoImg && logoParam && logoParam.trim() !== "") {
+        logoImg.src = logoParam.trim();
+      }
+
+      staffName = getStaffNameFromUrl();
+      const staffNameEl = document.getElementById("staff-name");
+      if (staffNameEl) staffNameEl.textContent = staffName;
+
+      currentLang = getPreferredLanguage();
+      document.documentElement.lang = currentLang;
+
+      updateLangBadge(currentLang);
+      applyTranslations(currentLang, staffName);
+      preparaFrasiI18n(currentLang, staffName);
+    });
+  </script>
+</body>
+</html>
